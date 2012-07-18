@@ -1,0 +1,5 @@
+twemcache (2.5.0-1~tooptee12+1) precise; urgency=low
+
+  * Initial release.
+
+ -- Jean Baptiste Favre <jbfavre@dotbuntu.org>  Wed, 18 Jul 2012 17:34:59 +0200

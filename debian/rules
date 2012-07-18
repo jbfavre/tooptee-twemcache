@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+DEB_BUILD_HARDENING=1
+export DEB_BUILD_HARDENING
+
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+
+PACKAGE=twemcache
+PKGBASE=debian/$(PACKAGE)/usr/share/$(PACKAGE)
+SCRIPTS=$(PKGBASE)/scripts
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_install:
+	install -m 744 debian/additions/start-memcached $(SCRIPTS)
+	install -m 744 debian/additions/memcached-tool $(SCRIPTS)
+
+override_dh_clean:
+	rm -f Makefile Makefile.in aclocal.m4 config.h config.h.in config.log config.status configure stamp-h1
+	rm -fr ./autom4te.cache ./config
+	rm -fr ./src/.deps/ ./src/Makefile ./src/Makefile.in
+	rm -rf .pc
+	find ./tests/ -name '*.pyc' -exec rm {} \;
+	dh_clean
