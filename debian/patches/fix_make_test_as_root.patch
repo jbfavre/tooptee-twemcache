@@ -1,0 +1,13 @@
+--- twemcache-2.5.0.orig/tests/pytest.sh	2012-07-18 17:50:32.000000000 +0200
++++ twemcache-2.5.0/tests/pytest.sh	2012-07-18 18:06:05.000000000 +0200
+@@ -80,6 +80,10 @@
+         echo "Template missing for $config_server. git pull again?"
+         exit 1
+     fi
++    if [ "${USER}" = "root" ]; then
++       sed "s:USER = None:USER = 'root':" <$config_server >${config_server}.tmp
++       mv ${config_server}.tmp $config_server
++    fi
+ fi
+ 
+ if [ -f $config_data ]; then

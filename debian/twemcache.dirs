@@ -1,0 +1,3 @@
+/usr/share/twemcache/scripts
+/var/run/twemcache
+/var/log/twemcache
