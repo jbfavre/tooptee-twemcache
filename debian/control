@@ -3,7 +3,7 @@ Maintainer: Jean Baptiste Favre <debian@jbfavre.org>
 Section: net
 Priority: optional
 Standards-Version: 0.1.16
-Build-Depends: debhelper (>= 9.29129115),
+Build-Depends: debhelper (>= 9),
                build-essential,
                dh-autoreconf,
                hardening-wrapper,
