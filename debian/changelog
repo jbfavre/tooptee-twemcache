@@ -1,3 +1,9 @@
+twemcache (2.5.3-1~tooptee10+1) lucid; urgency=low
+
+  * New upstream release
+
+ -- Jean Baptiste Favre <ubuntu@jbfavre.org>  Thu, 24 Jan 2013 22:25:16 +0100
+
 twemcache (2.5.0-1~tooptee10+1) lucid; urgency=low
 
   * Initial release.
